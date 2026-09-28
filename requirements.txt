@@ -1,0 +1,23 @@
+# Pinned for Streamlit Community Cloud (~1 GB RAM, no GPU) — keep it torch-free.
+# All ML is API-based (no sentence-transformers / torch). See references/dependencies.md.
+# Trim this to only the providers your use case needs, then re-verify `import app`.
+
+streamlit==1.58.0
+python-dotenv==1.2.2
+pandas==3.0.3
+numpy==2.4.6
+
+# --- Provider stack ---
+# Groq LLM (RAG answers)
+langchain==1.3.9
+langchain-core==1.4.7
+langchain-groq==1.1.3
+# Gemini embeddings (dense / bi-encoder retriever)
+langchain-google-genai==4.2.5
+
+# --- Retrieval ---
+# BM25 sparse retriever — pure-Python, torch-free.
+rank-bm25==0.2.2
+
+# --- Phase 2 (evaluation), add only when built ---
+# langchain-community==0.4.1   # pin 0.4.1 if you also use ragas 0.4.3 (0.4.2 breaks its import)
